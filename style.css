@@ -46,12 +46,17 @@ main {
 }
 
 #weather {
-    display: none;
-    margin-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease, visibility 0.6s ease;
 }
 
 #weather.show {
-    display: block;
+    max-height: 500px; /* valor suficiente para conter o conteúdo todo */
+    opacity: 1;
+    visibility: visible;
 }
 
 #title {

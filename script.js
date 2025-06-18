@@ -30,17 +30,34 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
 function showInfo(json){
     showAlert('');
 
-    document.querySelector('#weather').classList.add('show')
+    const weatherDiv = document.querySelector('#weather')
+   // Se estiver visível, remove a classe pra fechar
+    if (weatherDiv.classList.contains('show')) {
+        weatherDiv.classList.remove('show')
 
-    document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`
-    document.querySelector('#temp-value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')} C°`
-    document.querySelector('#temp-img').setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`)
-     document.querySelector('#description').innerHTML = `
-        <p>${json.description}</p>
-        <p>Umidade: ${json.humidity}%</p>
-     `
+        // Espera a animação de fechar antes de mostrar os novos dados
+        setTimeout(() => {
+            updateWeatherContent(json)
+            weatherDiv.classList.add('show')
+        }, 600) // tempo da transição no CSS
+    } else {
+        // Se ainda não estava visível, só mostra direto
+        updateWeatherContent(json)
+        weatherDiv.classList.add('show')
+    }
+
 }
 
 function showAlert(msg){
     document.querySelector('#alert').innerHTML = msg
+}
+
+function updateWeatherContent(json) {
+    document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`
+    document.querySelector('#temp-value').innerHTML = `${json.temp.toFixed(1).toString().replace('.', ',')} C°`
+    document.querySelector('#temp-img').setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`)
+    document.querySelector('#description').innerHTML = `
+        <p>${json.description}</p>
+        <p>Umidade: ${json.humidity}%</p>
+    `
 }

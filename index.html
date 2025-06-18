@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Previsão do tempo</title>
+</head>
+<body>
+    <main>
+        <div id="container">
+            <form id="search">
+                <i class="fa-solid fa-location-dot"></i>
+                <input type="search" name="city-name" id="city-name" placeholder="Buscar cidade">
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <div id="weather">
+                <h1 id="title">Sorocaba, BR</h1>
+
+                <div id="infos">
+                    <h2 id="temp-value">14 <span>C°</span></h2>
+
+                    <div id="temp">
+                        <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="imagem do clima" id="temp-img">
+                    </div>
+
+                    <div id="description">
+                        <p>Nublado</p>
+                        <p>Umidade: 72%</p>
+                    </div>
+                </div>
+                <div id="alert">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
